@@ -15,3 +15,14 @@ dependencies {
     implementation ':Corona@aar'
     implementation 'com.huawei.hms:ads-lite:13.4.32.300'
 }
+
+task extractPluginFromAAR(type: Copy) {
+    group "Corona"
+    dependsOn "assembleRelease"
+    from {
+        zipTree("build/outputs/aar/${project.name}-release.aar").matching { include '**/classes.jar' }.singleFile
+    }
+    into('build/outputs')
+    rename ('classes.jar', 'plugin.huaweiads.jar')
+}
+
