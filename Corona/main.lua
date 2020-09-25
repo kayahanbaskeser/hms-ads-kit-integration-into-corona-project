@@ -1,20 +1,20 @@
 -- Author Kayahan Baskeser 
 -- https://github.com/kayahanbaskeser
 
-local library = require "plugin.library"
+local ads = require "plugin.huaweiads"
 local json = require("json")
 local widget = require( "widget" )
 
 
 local function listener( event )
-	print( "Received event from Library plugin " , json.prettify(event))
+	print( "Received event from huaweiads plugin " , json.prettify(event))
 end
 
-library.init( listener )
-library.showBanner()
+ads.init( listener )
+ads.showBanner()
 
 local function onButtonClick( event )
-	library.InterstitialAd()
+	ads.InterstitialAd()
 end
 
 -- Create the widget

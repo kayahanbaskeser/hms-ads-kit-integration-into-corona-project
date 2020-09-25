@@ -8,8 +8,8 @@
 //  https://github.com/kayahanbaskeser
 
 // This corresponds to the name of the Lua library,
-// e.g. [Lua] require "plugin.library"
-package plugin.library;
+// e.g. [Lua] require "plugin.huaweiads"
+package plugin.huaweiads;
 
 import android.util.Log;
 import android.webkit.WebView;
