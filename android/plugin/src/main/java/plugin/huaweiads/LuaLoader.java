@@ -51,8 +51,8 @@ public class LuaLoader implements JavaFunction, CoronaRuntimeListener {
     public AdParam adParam;
     private BannerView bannerView;
     private FrameLayout layout;
-    public String bannarAdId = "testw6vs28auh3";
-    public String interstitialAdId = "teste9ih9j0rc3";
+    public String bannarAdId = "";
+    public String interstitialAdId = "";
 
     private InterstitialAd interstitialAd;
     private int fListener;
@@ -321,6 +321,14 @@ public class LuaLoader implements JavaFunction, CoronaRuntimeListener {
             return 0;
         }
 
+        if (L.isTable(1)) {
+            L.getField(1, "adId");
+
+            if (L.isString(2)) {
+                bannarAdId = L.toString(2);
+            }
+        }
+
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -358,6 +366,14 @@ public class LuaLoader implements JavaFunction, CoronaRuntimeListener {
 
     @SuppressWarnings({"WeakerAccess"})
     public int InterstitialAd(LuaState L) {
+        if (L.isTable(1)) {
+            L.getField(1, "adId");
+
+            if (L.isString(2)) {
+                interstitialAdId = L.toString(2);
+            }
+        }
+
         interstitialAd = new InterstitialAd(CoronaEnvironment.getApplicationContext());
         interstitialAd.setAdId(interstitialAdId);
         interstitialAd.setAdListener(interstitialAdListener);

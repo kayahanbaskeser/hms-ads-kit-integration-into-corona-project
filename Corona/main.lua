@@ -11,10 +11,10 @@ local function listener( event )
 end
 
 ads.init( listener )
-ads.showBanner()
+ads.showBanner({adId = "testw6vs28auh3"})
 
 local function onButtonClick( event )
-	ads.InterstitialAd()
+	ads.InterstitialAd({adId = "teste9ih9j0rc3"})
 end
 
 -- Create the widget
